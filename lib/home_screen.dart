@@ -5,12 +5,13 @@ import 'app_bar.dart';
 //data stored in database
 var databaseItems = [
   {"name": "أحمد خالد علي", "time": "03:16"},
+  {"name": "محمد احمد خالد ", "time": "03:55"},
   {"name": "أحمد خالد علي", "time": "03:16"},
+  {"name": "محمد احمد خالد ", "time": "03:55"},
   {"name": "أحمد خالد علي", "time": "03:16"},
+  {"name": "محمد احمد خالد ", "time": "03:55"},
   {"name": "أحمد خالد علي", "time": "03:16"},
-  {"name": "أحمد خالد علي", "time": "03:16"},
-  {"name": "أحمد خالد علي", "time": "03:16"},
-  {"name": "أحمد خالد علي", "time": "03:16"},
+  {"name": "محمد احمد خالد ", "time": "03:55"},
 ];
 
 class UserItemModel {
@@ -52,8 +53,10 @@ class HomeScreen extends StatelessWidget {
                   behavior: ScrollConfiguration.of(context)
                       .copyWith(scrollbars: false),
                   child: ListView.separated(
-                      itemCount: 15,
-                      itemBuilder: (context, index) => userItemWidget(),
+                      itemCount: fetchedUsers.length,
+                      itemBuilder: (context, index) => userItemWidget(
+                          name: fetchedUsers[index].name,
+                          time: fetchedUsers[index].time),
                       separatorBuilder: (context, index) => Container(
                             width: double.infinity,
                             height: 1.0,
@@ -78,13 +81,12 @@ Widget userItemWidget({String? name, String? time}) {
             style: TextStyle(fontSize: 16, color: Colors.grey[600]),
           ),
           Row(
-            children: const [
+            children: [
               Text(
-                // name!,
-                'أحمد خالد علي',
+                name!,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              IconButton(
+              const IconButton(
                 icon: Icon(
                   Icons.turned_in_rounded,
                   size: 30,
