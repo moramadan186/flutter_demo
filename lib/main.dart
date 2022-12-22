@@ -5,7 +5,7 @@ import 'home_screen.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My app',
       home: SafeArea(
